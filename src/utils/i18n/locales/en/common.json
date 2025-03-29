@@ -1,0 +1,17 @@
+{
+  "project": {
+    "company_name": "INISOFT Joint Stock Company",
+    "sub_name": "Providing software solutions",
+    "vision": "Vision",
+    "vision_desc": "Becoming a trusted partner in the technology sector",
+    "mission": "Mission",
+    "mission_desc": "Providing optimal technology solutions for customers",
+    "contact": "Contact us",
+    "email": "contact@inisoft.com",
+    "search": "Search by name, field, or language...",
+    "market": "Market",
+    "engine_tech": "Engine & Core Technology",
+    "main_features": "Main Features",
+    "languages": "Languages"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "project": {
+    "company_name": "INISOFT株式会社",
+    "sub_name": "ソフトウェアソリューションの提供",
+    "vision": "ビジョン",
+    "vision_desc": "技術分野で信頼されるパートナーになる",
+    "mission": "使命",
+    "mission_desc": "お客様に最適な技術ソリューションを提供",
+    "contact": "お問い合わせ",
+    "email": "contact@inisoft.com",
+    "search": "名前、分野、または言語で検索...",
+    "market": "市場",
+    "engine_tech": "エンジンと技術",
+    "main_features": "主な機能",
+    "languages": "言語"
+  }
+}

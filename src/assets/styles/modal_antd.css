@@ -1,0 +1,82 @@
+/* modal filter search */
+.modal_filter_search_adv .ant-modal-content {
+  overflow-y: scroll;
+  height: auto;
+  max-height: 96vh;
+  padding: unset;
+}
+
+.modal_filter_search_adv .ant-modal-body {
+  padding: 20px 24px;
+}
+
+.modal_filter_search_adv .ant-modal-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 24px;
+}
+
+.modal_filter_search_adv .ant-modal-close {
+  display: none;
+}
+
+.modal_filter_search_adv .ant-modal-title .title_header_modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_filter_search_adv .ant-modal-title .title_header_modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_filter_search_adv .ant-modal-footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 24px;
+  height: 70px;
+  box-shadow: 0px 2px 17px 0px rgba(175, 186, 191, 0.25);
+}
+
+.modal_filter_search_adv .group_btn_filter_search {
+  width: 100%;
+  display: flex;
+  gap: 12px;
+}
+
+.modal_filter_search_adv .group_btn_filter_search .btn_cancel {
+  width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid rgba(95, 31, 118, 0.25);
+  background: #fff;
+  color: #f80;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.modal_filter_search_adv .group_btn_filter_search .btn_filter {
+  width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  border-radius: 32px;
+  border: 1px solid #f80;
+  background: #f80;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+}
