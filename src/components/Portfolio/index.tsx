@@ -2,10 +2,12 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import React, { useCallback, useMemo, useRef, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
-import FirstPage from './FirstPage';
-import ListButton from './ListButton';
-import PortfolioItem from './PortfolioItem';
 import { projects } from './data';
+import FirstPage from './IntroPage/FirstPage';
+import IntroCompany from './IntroPage/IntroCompany';
+import ServicesProvided from './IntroPage/ServicesProvided';
+import ListButton from './ListButton';
+import PortfolioItem from './PagePortfolio/PortfolioItem';
 
 // Tạo component Page riêng cho từng trang và memo hóa để tránh render lại không cần thiết
 const Page = React.memo(
@@ -13,45 +15,58 @@ const Page = React.memo(
     return <PortfolioItem project={props.project} number={props.number} ref={ref} />;
   })
 );
+Page.displayName = 'Page';
 
 // Tạo FlipBook component riêng và memo hóa
 const FlipBook = React.memo(({ bookRef, filteredProjects, handleFlip }: any) => {
   const flipBookStyles = {
     boxShadow: '0 15px 40px rgba(0,0,0,0.2)',
     borderRadius: '10px',
-    background: '#e6e7e8'
+    // background: '#e6e7e8',
+    overflow: 'hidden'
   };
 
   return (
     <HTMLFlipBook
-      width={700}
-      height={1000}
-      minWidth={300}
-      maxWidth={1000}
-      minHeight={400}
-      maxHeight={1500}
-      startZIndex={0}
-      size="stretch"
-      showCover={false}
-      mobileScrollSupport={true}
-      className="mx-auto"
-      ref={bookRef}
-      style={flipBookStyles}
-      flippingTime={800}
+      width={1200}
+      height={700}
+      size="fixed"
+      minWidth={1200}
+      maxWidth={1200}
+      minHeight={700}
+      maxHeight={700}
+      drawShadow={true}
+      flippingTime={1000}
       usePortrait={true}
       startPage={0}
-      drawShadow={true}
+      startZIndex={0}
+      autoSize={true}
+      maxShadowOpacity={0.5}
+      showCover={true}
+      mobileScrollSupport={true}
+      clickEventForward={true}
       useMouseEvents={true}
-      renderOnlyPageLengthChange={true}
       swipeDistance={0}
       showPageCorners={true}
       disableFlipByClick={false}
-      maxShadowOpacity={0.7}
-      autoSize={true}
-      clickEventForward={true}
-      onFlip={handleFlip}>
-      <div className="relative w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-orange-50 to-gray-100">
-        <FirstPage />
+      style={flipBookStyles}
+      ref={bookRef}
+      onFlip={handleFlip}
+      className="mx-auto">
+      <div className="page">
+        <div className="relative w-full h-full flex flex-col items-center justify-center bg-[url('/imgs/img_1.png')] bg-cover bg-center bg-no-repeat">
+          <FirstPage />
+        </div>
+      </div>
+      <div className="page">
+        <div className="relative w-full h-full flex flex-col items-center justify-center bg-[url('/imgs/img_3.png')] bg-cover bg-center bg-no-repeat">
+          <IntroCompany />
+        </div>
+      </div>
+      <div className="page">
+        <div className="relative w-full h-full flex flex-col items-center justify-center bg-[url('/imgs/img_2.png')] bg-cover bg-center bg-no-repeat">
+          <ServicesProvided />
+        </div>
       </div>
       {filteredProjects.map((project: any, index: number) => (
         <div key={project.id || index} className="page">
@@ -61,6 +76,7 @@ const FlipBook = React.memo(({ bookRef, filteredProjects, handleFlip }: any) => 
     </HTMLFlipBook>
   );
 });
+FlipBook.displayName = 'FlipBook';
 
 export default function Portfolio() {
   const [search, setSearch] = useState('');
@@ -78,7 +94,6 @@ export default function Portfolio() {
   }, [search]);
 
   console.log(filteredProjects);
-  
 
   const exportToPDF = useCallback(async () => {
     try {
@@ -115,7 +130,6 @@ export default function Portfolio() {
 
       // Tính toán kích thước PDF một lần
       const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
 
       for (let i = 0; i < pages.length; i++) {
         const page = pages[i] as HTMLElement;
@@ -175,7 +189,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#f7f6f4] p-4">
+    <div className="min-h-screen bg-[#f7f6f4] p-4 flex justify-center items-center m-auto">
       <div className="max-w-7xl mx-auto px-4">
         <ListButton
           bookRef={bookRef}

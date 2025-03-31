@@ -7,6 +7,8 @@ import flagsEn from './img_flags/flags_en.png';
 import flagsJa from './img_flags/flags_ja.png';
 import flagsVn from './img_flags/flags_vn.png';
 import flagsKr from './img_flags/flags_kr.png';
+import logoCompany from './images/logo_company.webp';
+import movisApp from './images/movis_app.png';
 
 export const images = {
     image1,
@@ -18,4 +20,6 @@ export const images = {
     flagsJa,
     flagsVn,
     flagsKr,
+    logoCompany,
+    movisApp
 }

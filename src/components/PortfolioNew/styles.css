@@ -1,0 +1,12 @@
+/* Custom pagination styles */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #333;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #000;
+} 
